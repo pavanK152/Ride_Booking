@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
   savedPlaces: [
-    { type: "Home", address: "123 Downtown Home", icon: "Home" },
-    { type: "Work", address: "256  Noida It Park", icon: "Work" },
-    { type: "Gym", address: "999 Cult Fit", icon: "Gym" },
+    { id: uuidv4(), type: "Home", address: "123 Downtown Home" },
+    { id: uuidv4(), type: "Work", address: "256  Noida It Park" },
+    { id: uuidv4(), type: "Gym", address: "999 Cult Fit" },
   ],
   userStats: { rating: 4.8, rides: 49, saved: 2.5 },
   userData: {
@@ -48,11 +49,21 @@ export const appSlice = createSlice({
         ...action.payload,
       };
     },
+    deleteSavedPlaces: (state, action) => {
+      let filterPlaces = state.savedPlaces.filter(
+        (data) => data.id != action.payload.id
+      );
+      state.savedPlaces = filterPlaces;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { upDateRidesAndHours, upDateWalletBalance, upDateProfileData } =
-  appSlice.actions;
+export const {
+  upDateRidesAndHours,
+  upDateWalletBalance,
+  upDateProfileData,
+  deleteSavedPlaces,
+} = appSlice.actions;
 
 export default appSlice.reducer;
