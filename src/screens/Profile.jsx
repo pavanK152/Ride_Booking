@@ -1,5 +1,5 @@
 import React from "react";
-import ShowProfile from "../components/showProfile";
+import ShowProfile from "../components/ShowProfile";
 import UpdateWalletBalance from "../components/UpdateWalletbalance";
 import SavedLocations from "../components/SavedLocations";
 
