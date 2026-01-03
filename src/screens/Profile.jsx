@@ -1,6 +1,6 @@
 import React from "react";
 import ShowProfile from "../components/ShowProfile";
-import UpdateWalletBalance from "../components/UpdateWalletbalance";
+import UpdateWalletBalance from "../components/UpdateWalletBalance";
 import SavedLocations from "../components/SavedLocations";
 
 const Profile = () => {
